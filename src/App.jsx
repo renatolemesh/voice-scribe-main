@@ -14,6 +14,7 @@ function App() {
   const [downloading, setDownloading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [finished, setFinished] = useState(false)
+  const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
   const isAudioAvailable = file || audioStream
 
@@ -79,7 +80,7 @@ function App() {
             "https://api.openai.com/v1/audio/transcriptions", // URL da API OpenAI
             {
                 headers: {
-                    "Authorization": `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+                    "Authorization": `Bearer ${apiKey}`,
                     // O Content-Type deve ser deixado como 'multipart/form-data' para o FormData
                 },
                 method: "POST",
